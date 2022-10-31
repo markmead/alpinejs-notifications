@@ -1,8 +1,30 @@
-export default function (Alpine) {
-  Alpine.directive(
-    '[name]',
-    (el, { value, modifiers, expression }, { Alpine, effect, cleanup }) => {}
-  )
+import { createNotification } from './createNotification'
+import { handleAutoClose } from './handleAutoClose'
+import { handleAutoRemove } from './handleAutoRemove'
+import { handleClassNames } from './handleClassNames'
 
-  Alpine.magic('[name]', (el, { Alpine }) => {})
+export default function (Alpine) {
+  Alpine.magic('notify', () => (notificationText, notificationOptions) => {
+    const notificationData = notificationOptions?.wrapperId
+      ? notificationOptions
+      : window.notificationOptions
+
+    const notificationComponent = createNotification(
+      notificationData.wrapperId,
+      notificationData.templateId,
+      notificationText
+    )
+
+    if (notificationData.autoClose) {
+      handleAutoClose(notificationComponent, notificationData.autoClose)
+    }
+
+    if (notificationData.autoRemove) {
+      handleAutoRemove(notificationComponent, notificationData.autoRemove)
+    }
+
+    if (notificationData.classNames) {
+      handleClassNames(notificationData.classNames, notificationComponent)
+    }
+  })
 }

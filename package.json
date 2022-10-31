@@ -1,15 +1,19 @@
 {
-  "name": "PLUGIN",
+  "name": "alpinejs-notify",
   "version": "1.0.0",
-  "description": "Description of the plugin",
+  "description": "Simple notifications in your projects using Alpine JS 🙋‍♀️",
   "keywords": [
     "Alpine",
     "Alpine JS",
     "Alpine JS Plugin",
-    "Alpine JS Plugins"
+    "Alpine JS Plugins",
+    "Alpine JS Notifications",
+    "Alpine JS Notify",
+    "JavaScript Notifications",
+    "JavaScript Notify"
   ],
-  "module": "dist/FILE.esm.js",
-  "unpkg": "dist/FILE.min.js",
+  "module": "dist/notify.esm.js",
+  "unpkg": "dist/notify.min.js",
   "scripts": {
     "build": "node scripts/build.js"
   },
