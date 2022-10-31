@@ -44,8 +44,8 @@ disappears after 5s.
   x-on:click="$notify('Hello there, I am a notification!', {
     wrapperId: 'notificationWrapper',
     templateId: 'notificationAlert',
-    autoClose: 5000,
-    autoRemove: 6000
+    autoClose: 3000,
+    autoRemove: 4000
   })"
 >
   Notify
@@ -84,8 +84,21 @@ milliseconds) is up.
 
 `autoRemove`
 
-This will remove the notification element from the DOM once the duration (in
-milliseconds) is up.
+Here you have two options.
+
+**Duration**
+
+If you use a duration (in milliseconds) then it will remove the notification
+from the DOM once duration is up.
+
+This works for most situations, however it can get a little tricky calculating
+when the removal should happen when working with animations. This is what the
+boolean approach solves.
+
+**Boolean**
+
+Using a boolean will trigger the removal of the notification once the animation
+has ended. It will play the animation in full and then remove once complete.
 
 `classNames`
 
@@ -101,8 +114,8 @@ notifications are using the options from the example you can do this instead.
   window.notificationOptions = {
     wrapperId: 'notificationWrapper',
     templateId: 'notificationAlert',
-    autoClose: 5000,
-    autoRemove: true,
+    autoClose: 3000,
+    autoRemove: 4000,
   }
 </script>
 ```
@@ -122,7 +135,7 @@ out, you could do the following.
 <template id="notificationAlert">
   <div
     role="alert"
-    class="text-white bg-red-500 p-4 data-[notify-show=true]:animate-slide-in-right data-[notify-show=false]:animate-slide-out-right"
+    class="text-white bg-red-500 p-4 data-[notify-show=true]:animate-slide-in data-[notify-show=false]:animate-slide-out"
   >
     {notificationText}
   </div>
@@ -136,15 +149,15 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'slide-in-right': 'slide-in-right 0.15s ease-in forwards',
-        'slide-out-right': 'slide-out-right 0.15s ease-in forwards',
+        'slide-in': 'slide-in 0.15s ease-in forwards',
+        'slide-out': 'slide-out 0.15s ease-in forwards',
       },
       keyframes: {
-        'slide-in-right': {
+        'slide-in': {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0)' },
         },
-        'slide-out-right': {
+        'slide-out': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(100%)' },
         },
