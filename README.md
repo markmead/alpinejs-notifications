@@ -74,8 +74,8 @@ This is the notification component HTML that will be added to the wrapper.
 
 `templateFile`
 
-This the alternative choice to `templateId` which will get the notification
-component HTML that will be added to the wrapper from the file specified.
+This is an alternative choice to `templateId` which will get the notification
+component HTML from the file specified.
 
 `autoClose`
 
@@ -189,7 +189,7 @@ your notification template.
 
 ## Using a File
 
-If you prefer you can create HTML files for your notification templates.
+If preferred, you can create HTML files for your notification templates.
 
 ```html
 <div id="notificationWrapper" class="fixed top-4 w-64 right-4 space-y-2"></div>
@@ -206,14 +206,15 @@ If you prefer you can create HTML files for your notification templates.
 </button>
 ```
 
-And then in `notification.html` you could have something like this.
+This is now looking for a file called `notification.html` which might look
+something like this.
 
 ```html
 <div role="alert" class="text-white bg-red-500 p-4"> {notificationText} </div>
 ```
 
-This will work exactly the same as if you were to use `templateId`, it just
-offers a different approach.
+It works the exact same as `templateId` but it means you don't have `<template>`
+tags in your HTML for your notification templates.
 
 ## Stats
 
