@@ -1,7 +1,5 @@
-import { createNotification } from './createNotification'
-import { handleAutoClose } from './handleAutoClose'
-import { handleAutoRemove } from './handleAutoRemove'
-import { handleClassNames } from './handleClassNames'
+import { useFile } from './useFile'
+import { useTemplate } from './useTemplate'
 
 export default function (Alpine) {
   Alpine.magic('notify', () => (notificationText, notificationOptions) => {
@@ -9,22 +7,12 @@ export default function (Alpine) {
       ? notificationOptions
       : window.notificationOptions
 
-    const notificationComponent = createNotification(
-      notificationData.wrapperId,
-      notificationData.templateId,
-      notificationText
-    )
-
-    if (notificationData.autoClose) {
-      handleAutoClose(notificationComponent, notificationData.autoClose)
+    if (notificationData.templateFile) {
+      return useFile(notificationText, notificationData)
     }
 
-    if (notificationData.autoRemove) {
-      handleAutoRemove(notificationComponent, notificationData.autoRemove)
-    }
-
-    if (notificationData.classNames) {
-      handleClassNames(notificationData.classNames, notificationComponent)
+    if (notificationData.templateId) {
+      return useTemplate(notificationText, notificationData)
     }
   })
 }
