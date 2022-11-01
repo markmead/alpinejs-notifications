@@ -52,12 +52,7 @@ disappears after 5s.
 </button>
 
 <template id="notificationAlert">
-  <div
-    role="alert"
-    class="text-white bg-red-500 p-4 data-[notify-show=false]:opacity-50"
-  >
-    {notificationText}
-  </div>
+  <div role="alert" class="text-white bg-red-500 p-4"> {notificationText} </div>
 </template>
 ```
 
@@ -76,6 +71,11 @@ This is the wrapping element of the notification.
 `templateId`
 
 This is the notification component HTML that will be added to the wrapper.
+
+`templateFile`
+
+This the alternative choice to `templateId` which will get the notification
+component HTML that will be added to the wrapper from the file specified.
 
 `autoClose`
 
@@ -177,7 +177,7 @@ your notification template.
   <div
     x-data
     role="alert"
-    class="text-white bg-red-500 p-4 data-[notify-show=true]:animate-slide-in-right data-[notify-show=false]:animate-slide-out-right"
+    class="text-white bg-red-500 p-4 data-[notify-show=true]:animate-slide-in data-[notify-show=false]:animate-slide-out"
   >
     {notificationText}
     <button x-on:click="$root.setAttribute('data-notify-show', false)">
@@ -186,6 +186,34 @@ your notification template.
   </div>
 </template>
 ```
+
+## Using a File
+
+If you prefer you can create HTML files for your notification templates.
+
+```html
+<div id="notificationWrapper" class="fixed top-4 w-64 right-4 space-y-2"></div>
+
+<button
+  x-on:click="$notify('Hello there, I am a notification!', {
+    wrapperId: 'notificationWrapper',
+    templateFile: 'notification.html',
+    autoClose: 3000,
+    autoRemove: 4000
+  })"
+>
+  Notify
+</button>
+```
+
+And then in `notification.html` you could have something like this.
+
+```html
+<div role="alert" class="text-white bg-red-500 p-4"> {notificationText} </div>
+```
+
+This will work exactly the same as if you were to use `templateId`, it just
+offers a different approach.
 
 ## Stats
 
