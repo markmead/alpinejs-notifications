@@ -38,22 +38,29 @@ Let's create a simple notification that appears in the top right of the page and
 disappears after 5s.
 
 ```html
-<div id="notificationWrapper" class="fixed top-4 w-64 right-4 space-y-2"></div>
+<div x-data>
+  <div
+    id="notificationWrapper"
+    class="fixed top-4 w-64 right-4 space-y-2"
+  ></div>
 
-<button
-  x-on:click="$notify('Hello there, I am a notification!', {
+  <button
+    x-on:click="$notify('Hello there, I am a notification!', {
     wrapperId: 'notificationWrapper',
     templateId: 'notificationAlert',
     autoClose: 3000,
     autoRemove: 4000
   })"
->
-  Notify
-</button>
+  >
+    Notify
+  </button>
 
-<template id="notificationAlert">
-  <div role="alert" class="text-white bg-red-500 p-4"> {notificationText} </div>
-</template>
+  <template id="notificationAlert">
+    <div role="alert" class="text-white bg-red-500 p-4">
+      {notificationText}
+    </div>
+  </template>
+</div>
 ```
 
 ### Options
