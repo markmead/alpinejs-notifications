@@ -1,11 +1,11 @@
 buildPlugin({
   entryPoints: ['builds/cdn.js'],
-  outfile: 'dist/notify.min.js',
+  outfile: 'dist/notifications.min.js',
 })
 
 buildPlugin({
   entryPoints: ['builds/module.js'],
-  outfile: 'dist/notify.esm.js',
+  outfile: 'dist/notifications.esm.js',
   platform: 'neutral',
   mainFields: ['main', 'module'],
 })

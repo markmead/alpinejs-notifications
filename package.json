@@ -1,6 +1,6 @@
 {
   "name": "alpinejs-notify",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple notifications in your projects using Alpine JS 🙋‍♀️",
   "keywords": [
     "Alpine",
@@ -8,16 +8,14 @@
     "Alpine JS Plugin",
     "Alpine JS Plugins",
     "Alpine JS Notifications",
-    "Alpine JS Notify",
-    "JavaScript Notifications",
-    "JavaScript Notify"
+    "JavaScript Notifications"
   ],
-  "module": "dist/notify.esm.js",
-  "unpkg": "dist/notify.min.js",
+  "module": "dist/notifications.esm.js",
+  "unpkg": "dist/notifications.min.js",
   "scripts": {
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "esbuild": "^0.16.2"
+    "esbuild": "^0.19.4"
   }
 }

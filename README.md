@@ -1,4 +1,4 @@
-# Alpine JS Notify
+# Alpine JS Notifications
 
 Simple notifications in your projects using Alpine JS 🙋‍♀️
 
@@ -9,7 +9,7 @@ Simple notifications in your projects using Alpine JS 🙋‍♀️
 ```html
 <script
   defer
-  src="https://unpkg.com/alpinejs-notify@latest/dist/notify.min.js"
+  src="https://unpkg.com/alpinejs-notify@latest/dist/notifications.min.js"
 ></script>
 
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -25,9 +25,9 @@ npm install -D alpinejs-notify
 
 ```js
 import Alpine from 'alpinejs'
-import notify from 'alpinejs-notify'
+import notifications from 'alpinejs-notify'
 
-Alpine.plugin(notify)
+Alpine.plugin(notifications)
 
 Alpine.start()
 ```
@@ -228,4 +228,4 @@ tags in your HTML for your notification templates.
 ![](https://img.shields.io/bundlephobia/min/alpinejs-notify)
 ![](https://img.shields.io/npm/v/alpinejs-notify)
 ![](https://img.shields.io/npm/dt/alpinejs-notify)
-![](https://img.shields.io/github/license/markmead/alpinejs-notify)
+![](https://img.shields.io/github/license/markmead/alpinejs-notifications)
