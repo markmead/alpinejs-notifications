@@ -1,6 +1,6 @@
 {
   "name": "alpinejs-notify",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple notifications in your projects using Alpine JS 🙋‍♀️",
   "keywords": [
     "Alpine",
@@ -16,6 +16,6 @@
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "esbuild": "^0.19.4"
+    "esbuild": "^0.20.2"
   }
 }
